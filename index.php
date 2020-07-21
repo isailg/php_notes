@@ -1,6 +1,7 @@
 <?php
 $var1 = 1;
-$name = 'Isavi';
+$pseudonym= '@';
+$name = "$pseudonym Isavi";
 ?>
 
 <!doctype html>
