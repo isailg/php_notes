@@ -1,8 +1,44 @@
 <?php
 $var1 = 1;
 $pseudonym= '@';
-$name = "$pseudonym Isavi";
+$name = "$pseudonym isailg";
+/* PHP Types of variables*/
+/*Boolean*/
+$a= true;
+$b= false;
+/*Array*/
+$array = array (
+  "course1" => "php",
+  "course2" => "js",
+);
 
+$jobs= [
+  0 => 'PHP Developer',
+  1 => 'Python Developer',
+  2 => 'DevOps'
+];
+ //var_dump($jobs[2]);
+$jobs1 = [
+  [
+    'title' => 'PHP Developer',
+    'description' => 'Full Stack Developer'
+  ],
+  [
+    'title' => 'Python Developer'
+  ],
+  [
+    'title' => 'DevOps'
+  ]
+];
+class Br {
+  function move (){
+    echo "Going forward...";
+  }
+}
+/*
+$myBr = new Br();
+$myBr->move();
+*/
 ?>
 
 <!doctype html>
@@ -53,8 +89,8 @@ $name = "$pseudonym Isavi";
           <h3 class="border-bottom-gray" >Work Experience</h3>
           <ul>
             <li class="work-position">
-              <h5>PHP Developer</h5>
-              <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Nisi sapiente sed pariatur sint exercitationem eos expedita eveniet veniam ullam, quia neque facilis dicta voluptatibus. Eveniet doloremque ipsum itaque obcaecati nihil.</p>
+              <h5><?php echo $jobs1[0]['title']; ?></h5>
+              <p><?php echo $jobs1[0]['description']; ?></p>
               <strong>Achievements:</strong>
               <ul>
                 <li>Lorem ipsum dolor sit amet, 80% consectetuer adipiscing elit.</li>
