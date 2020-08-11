@@ -1,41 +1,20 @@
 <?php
-$var1 = 1;
-$pseudonym= '@';
-$name = "$pseudonym isailg";
-/* PHP Types of variables*/
-/*Boolean*/
+include('jobs.php');
+
+$nickname= "@isailg";
+$name = "Isaí López García";
+
+/* PHP Types of variables
+Boolean
 $a= true;
 $b= false;
-/*Array*/
-$array = array (
-  "course1" => "php",
-  "course2" => "js",
-);
-
-$jobs= [
-  0 => 'PHP Developer',
-  1 => 'Python Developer',
-  2 => 'DevOps'
-];
- //var_dump($jobs[2]);
-$jobs1 = [
-  [
-    'title' => 'PHP Developer',
-    'description' => 'Full Stack Developer'
-  ],
-  [
-    'title' => 'Python Developer'
-  ],
-  [
-    'title' => 'DevOps'
-  ]
-];
+*/
+/*
 class Br {
   function move (){
     echo "Going forward...";
   }
 }
-/*
 $myBr = new Br();
 $myBr->move();
 */
@@ -65,12 +44,12 @@ $myBr->move();
       </div>
       <div class="col">
         <h1><?php echo $name; ?></h1>
-        <h2>PHP Developer</h2>
+        <h2>Explorer Developer</h2>
         <ul>
-          <li>Mail: hector@mail.com</li>
+          <li>ilogamx@gmail.com</li>
           <li>Phone: 1234567890</li>
           <li>LinkedIn: https://linkedin.com</li>
-          <li>Twitter: @hectorbenitez</li>
+          <li>Twitter: @IsaiLopGar</li>
         </ul>
       </div>
     </div>
@@ -88,36 +67,11 @@ $myBr->move();
         <div>
           <h3 class="border-bottom-gray" >Work Experience</h3>
           <ul>
-            <li class="work-position">
-              <h5><?php echo $jobs1[0]['title']; ?></h5>
-              <p><?php echo $jobs1[0]['description']; ?></p>
-              <strong>Achievements:</strong>
-              <ul>
-                <li>Lorem ipsum dolor sit amet, 80% consectetuer adipiscing elit.</li>
-                <li>Lorem ipsum dolor sit amet, 80% consectetuer adipiscing elit.</li>
-                <li>Lorem ipsum dolor sit amet, 80% consectetuer adipiscing elit.</li>
-              </ul>
-            </li>
-            <li class="work-position">
-                <h5>PHP Developer</h5>
-                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Nisi sapiente sed pariatur sint exercitationem eos expedita eveniet veniam ullam, quia neque facilis dicta voluptatibus. Eveniet doloremque ipsum itaque obcaecati nihil.</p>
-                <strong>Achievements:</strong>
-                <ul>
-                  <li>Lorem ipsum dolor sit amet, 80% consectetuer adipiscing elit.</li>
-                  <li>Lorem ipsum dolor sit amet, 80% consectetuer adipiscing elit.</li>
-                  <li>Lorem ipsum dolor sit amet, 80% consectetuer adipiscing elit.</li>
-                </ul>
-              </li>
-              <li class="work-position">
-                  <h5>PHP Developer</h5>
-                  <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Nisi sapiente sed pariatur sint exercitationem eos expedita eveniet veniam ullam, quia neque facilis dicta voluptatibus. Eveniet doloremque ipsum itaque obcaecati nihil.</p>
-                  <strong>Achievements:</strong>
-                  <ul>
-                    <li>Lorem ipsum dolor sit amet, 80% consectetuer adipiscing elit.</li>
-                    <li>Lorem ipsum dolor sit amet, 80% consectetuer adipiscing elit.</li>
-                    <li>Lorem ipsum dolor sit amet, 80% consectetuer adipiscing elit.</li>
-                  </ul>
-                </li>
+            <?php
+            for($idx= 0; $idx < count($jobs); $idx++){
+              printJob($jobs[$idx]);
+            }
+            ?>
           </ul>
         </div>
         <div>
