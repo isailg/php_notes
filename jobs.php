@@ -1,6 +1,13 @@
 <?php
 require 'app/Models/Job.php';
 require 'app/Models/Project.php';
+require 'lib1/Project.php';
+/*
+use App\Models\Job;
+use App\Models\Project;
+use App\Models\Printable;
+*/
+use App\Models\{Job,Project,Printable};
 
 $job1 = new Job('PHP Developer','This is for real!!!');
 $job1->months = 16;
@@ -18,6 +25,8 @@ $jobs = [
 ];
 
 $project1 = new Project ('Project1','Description1');
+
+$projectLib = new Lib1\Project();
 
 $projects = [
   $project1 ];
