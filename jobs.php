@@ -1,7 +1,5 @@
 <?php
-require 'app/Models/Job.php';
-require 'app/Models/Project.php';
-require 'lib1/Project.php';
+require_once 'vendor/autoload.php';
 /*
 use App\Models\Job;
 use App\Models\Project;
@@ -26,7 +24,7 @@ $jobs = [
 
 $project1 = new Project ('Project1','Description1');
 
-$projectLib = new Lib1\Project();
+
 
 $projects = [
   $project1 ];
