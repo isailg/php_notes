@@ -1,5 +1,6 @@
 <?php
 include('jobs.php');
+require_once 'vendor/autoload.php';
 
 $nickname= "@isailg";
 $name = "Isaí López García";
