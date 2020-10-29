@@ -1,27 +1,3 @@
-<?php
-
-use App\Models\Job;
-
-require_once('jobs.php');
-$nickname= "@isailg";
-$name = "Isaí López García";
-
-/* PHP Types of variables
-Boolean
-$a= true;
-$b= false;
-*/
-/*
-class Br {
-  function move (){
-    echo "Going forward...";
-  }
-}
-$myBr = new Br();
-$myBr->move();
-*/
-?>
-
 <!doctype html>
 <html lang="en">
 
