@@ -5,11 +5,13 @@
     <div class="alert alert-primary" role="alert">
       {{ responseMessage }}
     </div>
-    <form action="/php_2/jobs/add" method="post">
+    <form action="/php_2/jobs/add" method="post" enctype="multipart/form-data">
       <label for="">Title:</label>
       <input type="text" name="title"> <br>
       <label for="">Description:</label>
       <input type="text" name="description"><br>
+      <label for="">Imagen:</label>
+      <input type="file" name="logo"><br>
       <button type="submit" name="button">Save</button>
     </form>
 {% endblock%}
