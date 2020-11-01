@@ -6,6 +6,8 @@ error_reporting(E_ALL);
 
 require_once '../vendor/autoload.php';
 
+password_hash('superSecurePaswd', PASSWORD_DEFAULT);
+
 use Illuminate\Database\Capsule\Manager as Capsule;
 use Aura\Router\RouterContainer;
 
@@ -57,6 +59,15 @@ $map->get('addJobs', '/php_2/jobs/add',[
 $map->post('saveJobs', '/php_2/jobs/add',[
   'controller' => 'App\Controllers\JobsController',
   'action' => 'getAddJobAction'
+]);
+//Sign up
+$map->get('addUser', '/php_2/signup',[
+  'controller' => 'App\Controllers\UsersController',
+  'action' => 'getAddUserAction'
+]);
+$map->post('saveUser', '/php_2/signup',[
+  'controller' => 'App\Controllers\UsersController',
+  'action' => 'getAddUserAction'
 ]);
 
 $matcher = $routerContainer->getMatcher();
