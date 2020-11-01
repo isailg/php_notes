@@ -69,6 +69,20 @@ $map->post('saveUser', '/php_2/signup',[
   'controller' => 'App\Controllers\UsersController',
   'action' => 'getAddUserAction'
 ]);
+//Login
+$map->get('loginForm', '/php_2/login',[
+  'controller' => 'App\Controllers\AuthController',
+  'action' => 'getLogin'
+]);
+$map->post('auth', '/php_2/auth',[
+  'controller' => 'App\Controllers\AuthController',
+  'action' => 'postLogin'
+]);
+
+$map->get('admin', '/php_2/admin',[
+  'controller' => 'App\Controllers\AdminController',
+  'action' => 'getAdmin'
+]);
 
 $matcher = $routerContainer->getMatcher();
 $route = $matcher->match($request);
@@ -102,5 +116,11 @@ if (!$route) {
   $controller = new $controllerName;
   $response = $controller->$actionName($request);
 
+  foreach ($response->getHeaders() as $name => $value) {
+    foreach ($value as $value) {
+      header(sprintf('%s: %s', $name, $value), false);
+    }
+  }
+  http_response_code($response->getStatusCode());
   echo $response -> getBody();
 }
