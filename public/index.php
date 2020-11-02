@@ -8,6 +8,8 @@ require_once '../vendor/autoload.php';
 
 password_hash('superSecurePaswd', PASSWORD_DEFAULT);
 
+session_start();
+
 use Illuminate\Database\Capsule\Manager as Capsule;
 use Aura\Router\RouterContainer;
 
@@ -74,6 +76,10 @@ $map->get('loginForm', '/php_2/login',[
   'controller' => 'App\Controllers\AuthController',
   'action' => 'getLogin'
 ]);
+$map->get('logout', '/php_2/logout',[
+  'controller' => 'App\Controllers\AuthController',
+  'action' => 'getLogout'
+]);
 $map->post('auth', '/php_2/auth',[
   'controller' => 'App\Controllers\AuthController',
   'action' => 'postLogin'
@@ -81,7 +87,8 @@ $map->post('auth', '/php_2/auth',[
 
 $map->get('admin', '/php_2/admin',[
   'controller' => 'App\Controllers\AdminController',
-  'action' => 'getAdmin'
+  'action' => 'getAdmin',
+  'auth' => true
 ]);
 
 $matcher = $routerContainer->getMatcher();
@@ -112,7 +119,13 @@ if (!$route) {
   $handlerData = $route->handler;
   $controllerName = $handlerData['controller'];
   $actionName = $handlerData['action'];
+  $needsAuth = $handlerData['auth'] ?? false;
 
+  $sessionUserId = $_SESSION['userId'] ?? null;
+  if ($needsAuth && !$sessionUserId){
+    echo 'Protected route';
+    die;
+  }
   $controller = new $controllerName;
   $response = $controller->$actionName($request);
 
